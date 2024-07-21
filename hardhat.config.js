@@ -10,12 +10,12 @@ require("dotenv").config();
 module.exports = {
   solidity: "0.8.18",
   networks: {
-    mumbai: {
-      url: "https://rpc-mumbai.maticvigil.com",
+    amoy: {
+      url: "https://rpc-amoy.polygon.technology",
       accounts: [process.env.PRIVATE_KEY],
     },
-    goerli: {
-      url: "https://eth-goerli.g.alchemy.com/v2/h-asDNMJ21mVniDAY3XE1VQ9F7PW7A0x",
+    sepolia: {
+      url: "https://1rpc.io/sepolia",
       accounts: [process.env.PRIVATE_KEY],
     },
   },

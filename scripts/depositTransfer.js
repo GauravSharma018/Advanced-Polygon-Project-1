@@ -7,8 +7,7 @@ require("dotenv").config();
 //Transfer ERC721A tokens to the Ethereum FxChain network
 async function main() {
   // Set up connections to network and wallet
-  const networkAddress =
-    "https://eth-goerli.g.alchemy.com/v2/h-asDNMJ21mVniDAY3XE1VQ9F7PW7A0x";
+  const networkAddress = "https://1rpc.io/sepolia";
   const privateKey = process.env.PRIVATE_KEY;
   const provider = new ethers.providers.JsonRpcProvider(networkAddress);
 
@@ -20,7 +19,7 @@ async function main() {
 
   // Get ERC721A contract instance
   const NFT = await ethers.getContractFactory("police_cop");
-  const nft = await NFT.attach("0x08b7f3BFB7e7acA78156d53d7499aAA6c52E1FF6");
+  const nft = await NFT.attach("0x2288BC461A6E6A42B2C68030B9549f13C754CAdF");
 
   // Get FXRoot contract instance
   const fxRootAddress = "0xF9bc4a80464E48369303196645e876c8C7D972de";

@@ -4,14 +4,13 @@ require("dotenv").config();
 async function main() {
   const privateKey = process.env.PRIVATE_KEY;
 
-  const networkAddress =
-    "https://eth-goerli.g.alchemy.com/v2/h-asDNMJ21mVniDAY3XE1VQ9F7PW7A0x";
+  const networkAddress = "https://1rpc.io/sepolia";
 
   const provider = new ethers.providers.JsonRpcProvider(networkAddress);
 
   const signer = new ethers.Wallet(privateKey, provider);
 
-  const contractAddress = "0x08b7f3BFB7e7acA78156d53d7499aAA6c52E1FF6";
+  const contractAddress = "0x776824a42a841621761770e328A87C184c3b9595";
 
   const IndianNFT = await ethers.getContractFactory("police_cop", signer);
   const contract = await IndianNFT.attach(contractAddress);

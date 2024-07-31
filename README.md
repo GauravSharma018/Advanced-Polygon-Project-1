@@ -15,9 +15,9 @@ Before deploying, make sure to paste the private key of our wallet in the .env f
 `npx hardhat run scripts/deploy.js --network sepolia `
 
 ## Note:
-After deploying the address will generate. So, copy that address into contarctAddress.js(stored in metadata folder) and also in MINT.js(stored in scripts folder)
+After deploying the address will generated. So, copy that address into contarctAddress.js(stored in metadata folder) and also in MINT.js(stored in scripts folder) and getBalance.js(also in scripts folder).
 
-The script will deploy the contract
+The script will deploy the contract.
 
 # Batch Mint NFTs
 Run the following command to MINT NFTs using the deployed ERC721 contract:

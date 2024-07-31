@@ -11,8 +11,7 @@ contract police_cop is ERC721A {
     uint256 public maxQuantity = 5;
 
     // Base url for the nfts
-    string baseUrl =
-        "https://gateway.pinata.cloud/ipfs/QmeNRTUgpQ7khdwkNReGhAHgSjikBMMFbrKV47VXaHpFmG/";
+    string baseUrl = "https://gateway.pinata.cloud/ipfs/QmeNRTUgpQ7khdwkNReGhAHgSjikBMMFbrKV47VXaHpFmG/";
 
     // URL for the prompt description
     string public prompt = "police cop";
@@ -29,10 +28,7 @@ contract police_cop is ERC721A {
 
     // Function to mint NFT which only owner can perform
     function mint(uint256 quantity) external payable onlyOwner {
-        require(
-            totalSupply() + quantity <= maxQuantity,
-            "You can not mint more than 5"
-        );
+        require(totalSupply() + quantity <= maxQuantity,"You can not mint more than 5");
         _mint(msg.sender, quantity);
     }
 

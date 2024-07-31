@@ -1,4 +1,6 @@
 const hre = require("hardhat");
+
+// File system module for reading and writing files
 const fs = require("fs");
 
 async function main() {
@@ -10,6 +12,7 @@ async function main() {
 
   console.log("police cop NFT contract deployed to:", nft.address);
 
+  // export the addresses to metadata/contractAddress.js 
   fs.writeFileSync(
     "metadata/contractAddress.js",
     `

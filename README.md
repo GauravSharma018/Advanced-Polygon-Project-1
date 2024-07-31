@@ -12,7 +12,7 @@ We install all the dependencies for the hardhat using the "npm i" command.
    
 # Deploying the ERC721 Contract
 Before deploying, make sure to paste the private key of our wallet in the .env file i.e. "PRIVATE_KEY= 'your wallet private key'". Run the following command to deploy the ERC721 contract to the sepolia Ethereum Testnet:
-`npx hardhat run scripts/DEPLOY.js --network sepolia `
+`npx hardhat run scripts/deploy.js --network sepolia `
 
 ## Note:
 After deploying the address will generate. So, copy that address into contarctAddress.js(stored in metadata folder) and also in MINT.js(stored in scripts folder)

@@ -7,16 +7,31 @@ In this module, we will be creating an NFT collection using the Lexica (AI-gener
 
 
 # Getting Started
+To run the code you can use gitpod online platform using the link https://www.gitpod.io/ or your VS Code. 
+We install all the dependencies for the hardhat using the "npm i" command.
+   
+# Deploying the ERC721 Contract
+Before deploying, make sure to paste the private key of our wallet in the .env file i.e. "PRIVATE_KEY= 'your wallet private key'". Run the following command to deploy the ERC721 contract to the sepolia Ethereum Testnet:
+`npx hardhat run scripts/DEPLOY.js --network sepolia `
 
-1) We install all the dependencies for the hardhat using the "npm i" command.
-2) We paste the private key of our wallet in the .env file.
-3) We run the "npx hardhat run scripts/deploy.js --network sepolia" to deploy the NFT collection on the sepolia network.
-4) We run the  "npx hardhat run scripts/Mint.js --network sepolia" to mint the tokens on the sepolia network and transfer them to the polygon network.
-5) We run the  "npx hardhat run scripts/depositTransfer.js --network sepolia" to validate the token address, and wallet address to connect to the polygon network.
-6) We run the  "npx hardhat run scripts/getBalance.js --network sepolia" to validate the token address, and wallet address to connect to the polygon network.
-7) We use polygonscan amoy to check the transaction details and the balance.
-8) The balance will be fetched successfully and will be printed on the console as Indian NFT balance is 5 tokens.
+# Note:
+After deploying the address will generate. So, copy that address into contarctAddress.js(stored in metadata folder) and also in MINT.js(stored in scripts folder)
 
+The script will deploy the contract
+
+# Batch Mint NFTs
+Run the following command to MINT NFTs using the deployed ERC721 contract:
+`npx hardhat run scripts/Mint.js --network sepolia`
+
+# Approve and Deposit NFTs to Polygon Amoy Testnet
+Edit the depositTransfer.js script with necessary details. Run the following commands to approve and deposit the minted NFTs from Ethereum testnet sepolia.
+`npx hardhat run scripts/depositTransfer.js --network sepolia`
+You use polygonscan amoy or sepolia etherscan to check the transaction details and the balance.
+
+# Checking the balance of the wallet
+Run the following command to get the balance of the particular wallet address
+
+`npx hardhat run scripts/getBalance.js --network sepolia`
 
 # Authors
 

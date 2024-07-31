@@ -13,8 +13,9 @@ In this module, we will be creating an NFT collection using the Lexica (AI-gener
 3) We run the "npx hardhat run scripts/deploy.js --network sepolia" to deploy the NFT collection on the sepolia network.
 4) We run the  "npx hardhat run scripts/Mint.js --network sepolia" to mint the tokens on the sepolia network and transfer them to the polygon network.
 5) We run the  "npx hardhat run scripts/depositTransfer.js --network sepolia" to validate the token address, and wallet address to connect to the polygon network.
-6) We use polygonscan amoy to check the transaction details and the balance.
-7) The balance will be fetched successfully and will be printed on the console as Indian NFT balance is 5 tokens.
+6) We run the  "npx hardhat run scripts/getBalance.js --network sepolia" to validate the token address, and wallet address to connect to the polygon network.
+7) We use polygonscan amoy to check the transaction details and the balance.
+8) The balance will be fetched successfully and will be printed on the console as Indian NFT balance is 5 tokens.
 
 
 # Authors

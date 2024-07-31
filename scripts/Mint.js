@@ -1,32 +1,61 @@
-// This script batch mints ERC721A tokens.
+//import c from "contracts/examples/erc721-transfer/FxERC721RootTunnel.sol"
+// Import necessary packages and contracts
 const { ethers } = require("hardhat");
+const { FXRootContractAbi } = require("../artifacts/FXRootContractAbi.js");
+const ABI = require("../artifacts/contracts/police_cop.sol/police_cop.json");
 require("dotenv").config();
 
+//Transfer ERC721A tokens to the Ethereum FxChain network
 async function main() {
+  // Set up connections to network and wallet
+  const networkAddress = "https://rpc-amoy.polygon.technology";
   const privateKey = process.env.PRIVATE_KEY;
-
-   // The  URL of the Sepolia test network
-  const networkAddress = "https://ethereum-sepolia.blockpi.network/v1/rpc/public";
-
-   // connect to the Ethereum network
   const provider = new ethers.providers.JsonRpcProvider(networkAddress);
 
-   // Create a signer (account) 
-  const signer = new ethers.Wallet(privateKey, provider);
+  // Create a wallet instance
+  const wallet = new ethers.Wallet(privateKey, provider);
 
-  // The address of the deployed contract
-  const contractAddress = "0x01653DA3fb255de60adBA3D393450AB066383218";
+  // Get the signer instance
+  const [signer] = await ethers.getSigners();
 
-  // Get the contract factory for the contract and attach it to the signer
-  const IndianNFT = await ethers.getContractFactory("police_cop", signer);
-  const contract = await IndianNFT.attach(contractAddress);
+  // Get ERC721A contract instance
+  const NFT = await ethers.getContractFactory("police_cop");
+  const nft = await NFT.attach("0x46Ce01f4bB572012dA8a2a4F8d80d2cc23471568");
 
-  // Call the mint function to mint 5 tokens
-  await contract.mint(5);
+  // Get the FXRoot contract instance (FxChildTunnel contract on Ethereum FxChain)
+  const fxRootAddress = "0x421DbB7B5dFCb112D7a13944DeFB80b28eC5D22C";
+  const fxRoot = await ethers.getContractAt(FXRootContractAbi, fxRootAddress);
 
-  console.log("Successfully minted '5' tokens.");
+  // TokenIds to transfer
+  const tokenIds = [0, 1, 2, 3, 4];
+
+  // Approve the nfts for transfer
+  const approveTx = await nft
+    .connect(signer)
+    .setApprovalForAll(fxRootAddress, true);
+  await approveTx.wait();
+  console.log("Approval confirmed");
+
+  // Deposit the nfts to the FXRoot contracts
+  for (let i = 0; i < tokenIds; i++) {
+    const depositTx = await fxRoot
+      .connect(signer)
+      .deposit(nft.address, wallet.address, tokenIds[i], "0x6566");
+
+    // Wait for the deposit to be confirmed
+    await depositTx.wait();
+  }
+
+  console.log("Approved and deposited");
+
+  // Test balanceOf
+  const balance = await nft.balanceOf(wallet.address);
+
+  // Print the balance of the wallet
+  console.log( "Current NFT wallet balance", wallet.address, "is: ", balance.toString());
 }
 
+// Call the main function and handle any errors
 main()
   .then(() => process.exit(0))
   .catch((error) => {

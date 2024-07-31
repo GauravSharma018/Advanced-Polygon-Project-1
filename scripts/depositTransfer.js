@@ -1,4 +1,5 @@
-//import c from "contracts/examples/erc721-transfer/FxERC721RootTunnel.sol"// Import necessary packages and contracts
+//import c from "contracts/examples/erc721-transfer/FxERC721RootTunnel.sol"
+// Import necessary packages and contracts
 const { ethers } = require("hardhat");
 const { FXRootContractAbi } = require("../artifacts/FXRootContractAbi.js");
 const ABI = require("../artifacts/contracts/police_cop.sol/police_cop.json");
@@ -7,7 +8,7 @@ require("dotenv").config();
 //Transfer ERC721A tokens to the Ethereum FxChain network
 async function main() {
   // Set up connections to network and wallet
-  const networkAddress = "https://1rpc.io/sepolia";
+  const networkAddress = "https://rpc-amoy.polygon.technology";
   const privateKey = process.env.PRIVATE_KEY;
   const provider = new ethers.providers.JsonRpcProvider(networkAddress);
 
@@ -19,10 +20,10 @@ async function main() {
 
   // Get ERC721A contract instance
   const NFT = await ethers.getContractFactory("police_cop");
-  const nft = await NFT.attach("0x2288BC461A6E6A42B2C68030B9549f13C754CAdF");
+  const nft = await NFT.attach("0x46Ce01f4bB572012dA8a2a4F8d80d2cc23471568");
 
-  // Get FXRoot contract instance
-  const fxRootAddress = "0xF9bc4a80464E48369303196645e876c8C7D972de";
+  // Get the FXRoot contract instance (FxChildTunnel contract on Ethereum FxChain)
+  const fxRootAddress = "0x421DbB7B5dFCb112D7a13944DeFB80b28eC5D22C";
   const fxRoot = await ethers.getContractAt(FXRootContractAbi, fxRootAddress);
 
   // TokenIds to transfer
@@ -51,12 +52,7 @@ async function main() {
   const balance = await nft.balanceOf(wallet.address);
 
   // Print the balance of the wallet
-  console.log(
-    "IndianNFT wallet balance",
-    wallet.address,
-    "is: ",
-    balance.toString()
-  );
+  console.log( "Current NFT wallet balance", wallet.address, "is: ", balance.toString());
 }
 
 // Call the main function and handle any errors

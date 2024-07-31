@@ -32,6 +32,11 @@ contract police_cop is ERC721A {
         _mint(msg.sender, quantity);
     }
 
+    //Function to check balance of the owner
+    function getBalance(address _owner) external view returns (uint256) {
+        return balanceOf(_owner);
+    }
+
     // Override the baseURI function to return the base URL for the NFTs
     function _baseURI() internal view override returns (string memory) {
         return baseUrl;

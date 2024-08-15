@@ -31,7 +31,7 @@ You use polygonscan amoy or sepolia etherscan to check the transaction details a
 # Checking the balance of the wallet
 Run the following command to get the balance of the particular wallet address
 
-`npx hardhat run scripts/getBalance.js --network sepolia`
+`npx hardhat run scripts/getBalance.js --network amoy`
 
 # Authors
 

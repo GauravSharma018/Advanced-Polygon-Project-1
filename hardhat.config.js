@@ -8,12 +8,12 @@ module.exports = {
   solidity: "0.8.24",
   networks: {
     polygon_amoy: {
-      url: POLYGON_API_URL,
-      accounts: [PRIVATE_KEY],
+      url: "https://polygon-amoy.drpc.org",
+      accounts: [process.env.PRIVATE_KEY],
     },
     sepolia: {
-      url: SEPOLIA_API_URL,
-      accounts: [PRIVATE_KEY],
+      url: "https://ethereum-sepolia-rpc.publicnode.com",
+      accounts: [process.env.PRIVATE_KEY],
     },
   },
 };

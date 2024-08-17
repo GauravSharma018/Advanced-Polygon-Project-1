@@ -12,7 +12,7 @@ To run the code you can use gitpod online platform using the link https://www.gi
 We install all the dependencies for the hardhat using the "npm i" command.
    
 # Deploying the ERC721 Contract
-Before deploying, make sure to paste the private key of our wallet in the .env file i.e. "PRIVATE_KEY= 'your wallet private key'". Run the following command to deploy the ERC721 contract to the sepolia Ethereum Testnet:
+Before deploying, make sure to paste the private key of our wallet in the .env file i.e. "PRIVATE_KEY= 'your wallet private key'". Run the following command to deploy the ERC721 contract to the sepolia Ethereum Testnet: <br />
 `npx hardhat run scripts/deploy.js --network sepolia `
 
 ## Note:
@@ -21,16 +21,16 @@ After deploying the address will generated. So, copy that address into contarctA
 The script will deploy the contract.
 
 # Batch Mint NFTs
-Run the following command to MINT NFTs using the deployed ERC721 contract:
+Run the following command to MINT NFTs using the deployed ERC721 contract:<br />
 `npx hardhat run scripts/Mint.js --network sepolia`
 
 # Approve and Deposit NFTs to Polygon Amoy Testnet
-Edit the depositTransfer.js script with necessary details. Run the following commands to approve and deposit the minted NFTs from Ethereum testnet sepolia.
+Edit the depositTransfer.js script with necessary details. Run the following commands to approve and deposit the minted NFTs from Ethereum testnet sepolia.<br />
 `npx hardhat run scripts/depositTransfer.js --network sepolia`
 You use polygonscan amoy or sepolia etherscan to check the transaction details and the balance.
 
 # Checking the balance of the wallet
-Run the following command to get the balance of the particular wallet address
+Run the following command to get the balance of the particular wallet address<br />
 
 `npx hardhat run scripts/getBalance.js --network amoy`
 

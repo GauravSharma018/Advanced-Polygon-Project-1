@@ -33,7 +33,7 @@ Run the following command to MINT NFTs using the deployed ERC721 contract:<br />
 
 # Approve and Deposit NFTs to Polygon Amoy Testnet
 Edit the depositTransfer.js script with necessary details. Run the following commands to approve and deposit the minted NFTs from Ethereum testnet sepolia.<br />
-`npx hardhat run scripts/depositTransfer.js --network sepolia`
+`npx hardhat run scripts/depositTransfer.js --network sepolia` <br />
 You use polygonscan amoy or sepolia etherscan to check the transaction details and the balance.
 
 # Checking the balance of the wallet

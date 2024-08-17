@@ -1,5 +1,6 @@
 # Advanced-Polygon-Project-1
-Deploy an NFT collection on the Ethereum blockchain, map the collection to a polygon, and transfer assets over the polygon bridge.
+Deploy an NFT collection on the Ethereum blockchain, map the collection to a polygon, and transfer assets over the polygon bridge.<br />
+rawrNFT is an ERC721A compliant NFT contract that allows the owner to mint NFTs with specific URLs and prompts. The contract is built using Solidity and leverages the OpenZeppelin library for ownership management. Additionally, this project includes scripts to deploy and interact with the contract using Hardhat.
 
 # Description
 
@@ -12,7 +13,7 @@ We install all the dependencies for the hardhat using the "npm i" command.
    
 # Deploying the ERC721 Contract
 Before deploying, make sure to paste the private key of our wallet in the .env file i.e. "PRIVATE_KEY= 'your wallet private key'". Run the following command to deploy the ERC721 contract to the sepolia Ethereum Testnet:
-`ruby npx hardhat run scripts/deploy.js --network sepolia `
+`npx hardhat run scripts/deploy.js --network sepolia `
 
 ## Note:
 After deploying the address will generated. So, copy that address into contarctAddress.js(stored in metadata folder) and also in MINT.js(stored in scripts folder) and getBalance.js(also in scripts folder).
